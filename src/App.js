@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import TaskInput from './components/TaskInput';
+import ToDoList from './components/ToDoList';
 
-function App() {
+const App = props => {
+  const [tasks, setTasks] = useState(new Map());
+
+  const addTasks = ({toDo}) => {
+    const newTask = {
+      taskValue: toDo,
+      isDone: false,
+    };
+
+    setTasks(new Map([...tasks]).set(Date.now(), newTask));
+  };
+
+  const switchIsDone = (id) => {
+    const task = tasks.get(id);
+    task.isDone = !task.isDone;
+  };
+
+  console.log(tasks);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TaskInput onSubmit={addTasks} />
+      <ToDoList toDoInputs={tasks} switchIsDone={switchIsDone}/>
     </div>
   );
-}
+};
 
 export default App;
