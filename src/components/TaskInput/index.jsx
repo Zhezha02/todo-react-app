@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { TO_DO_INPUT_SCHEMA } from '../../utils/validationSchemas';
 import styles from './taskInput.module.scss';
 
@@ -16,7 +16,6 @@ const TaskInput = props => {
       <Form className={styles.container}>
         <label className={styles.inputContainer}>
           <Field className={styles.input} name='toDo' type='text' placeholder='new task' />
-          <ErrorMessage name='toDo' component='span' />
         </label>
         <button className={styles.submitBtn} type='submit'>ADD</button>
       </Form>
