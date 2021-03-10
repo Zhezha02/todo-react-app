@@ -5,8 +5,7 @@ import styles from './TaskItem.module.scss';
 import cx from 'classnames';
 
 const TaskItem = props => {
-  const [isChecked, setIsChecked] = useState('');
-  console.log(isChecked);
+  const [isChecked, setIsChecked] = useState(false);
   const {
     id,
     input: { taskValue, isDone },

@@ -26,7 +26,7 @@ const ToDoList = props => {
 };
 
 ToDoList.propTypes = {
-  toDoInputs: PropTypes.array.isRequired,
+  toDoInputs: PropTypes.object.isRequired,
   clearToDoList: PropTypes.func,
 };
 

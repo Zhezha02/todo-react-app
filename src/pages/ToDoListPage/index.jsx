@@ -25,7 +25,6 @@ const ToDoListPage = props => {
     newTasks.delete(id);
     setTasks(newTasks);
   };
-
   const clearToDoList = () => setTasks(new Map());
 
   return (
@@ -33,12 +32,14 @@ const ToDoListPage = props => {
       <h1 className={styles.heading}>to-do list</h1>
       <div className={styles.container}>
         <TaskInput onSubmit={addTasks} />
-        <ToDoList
-          toDoInputs={tasks}
-          switchIsDone={switchIsDone}
-          deleteTask={deleteTask}
-          clearToDoList={clearToDoList}
-        />
+        {[...tasks].length !== 0 && (
+          <ToDoList
+            toDoInputs={tasks}
+            switchIsDone={switchIsDone}
+            deleteTask={deleteTask}
+            clearToDoList={clearToDoList}
+          />
+        )}
       </div>
     </div>
   );
