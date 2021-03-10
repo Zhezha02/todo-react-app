@@ -5,7 +5,7 @@ import ToDoList from './components/ToDoList';
 const App = props => {
   const [tasks, setTasks] = useState(new Map());
 
-  const addTasks = ({toDo}) => {
+  const addTasks = ({ toDo }) => {
     const newTask = {
       taskValue: toDo,
       isDone: false,
@@ -14,16 +14,25 @@ const App = props => {
     setTasks(new Map([...tasks]).set(Date.now(), newTask));
   };
 
-  const switchIsDone = (id) => {
+  const switchIsDone = id => {
     const task = tasks.get(id);
     task.isDone = !task.isDone;
   };
 
-  console.log(tasks);
+  const deleteTask = id => {
+    const newTasks = new Map([...tasks]);
+    newTasks.delete(id);
+    setTasks(newTasks);
+  };
+
   return (
     <div>
       <TaskInput onSubmit={addTasks} />
-      <ToDoList toDoInputs={tasks} switchIsDone={switchIsDone}/>
+      <ToDoList
+        toDoInputs={tasks}
+        switchIsDone={switchIsDone}
+        deleteTask={deleteTask}
+      />
     </div>
   );
 };
