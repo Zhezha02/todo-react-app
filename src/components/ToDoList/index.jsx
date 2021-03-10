@@ -18,8 +18,8 @@ const ToDoList = props => {
   return <ul className={styles.container}>{itemsOfList()}</ul>;
 };
 
-// ToDoList.propTypes = {
-//   toDoInputs: PropTypes.array.isRequired,
-// };
+ToDoList.propTypes = {
+  toDoInputs: PropTypes.array.isRequired,
+};
 
 export default ToDoList;

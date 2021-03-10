@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import trashCan from './trash-can-outline.svg';
 import styles from './TaskItem.module.scss';
 import cx from 'classnames';
 
 const TaskItem = props => {
   const [isChecked, setIsChecked] = useState('');
-console.log(isChecked);
+  console.log(isChecked);
   const {
     id,
     input: { taskValue, isDone },
@@ -38,12 +38,14 @@ console.log(isChecked);
   );
 };
 
-// TaskItem.propTypes = {
-//   input: PropTypes.shape({
-//     id: PropTypes.number,
-//     taskValue: PropTypes.string,
-//     isDone: PropTypes.bool,
-//   }),
-// };
+TaskItem.propTypes = {
+  id: PropTypes.number,
+  input: PropTypes.shape({
+    taskValue: PropTypes.string,
+    isDone: PropTypes.bool,
+  }),
+  switchIsDone: PropTypes.func,
+  deleteTask: PropTypes.func,
+};
 
 export default TaskItem;

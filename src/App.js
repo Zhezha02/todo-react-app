@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ToDoListPage from './pages/ToDoListPage';
 
-const App = props => {
+const App = () => {
   return <ToDoListPage />;
 };
 
