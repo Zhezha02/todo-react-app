@@ -2,22 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { TO_DO_INPUT_SCHEMA } from '../../utils/validationSchemas';
+import styles from './taskInput.module.scss';
 
 const initialValues = { toDo: '' };
 
-const TaskInput = (props) => {
+const TaskInput = props => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={TO_DO_INPUT_SCHEMA}
       onSubmit={props.onSubmit}
     >
-      <Form>
-        <label>
-          <Field name='toDo' type='text' placeholder='new task' />
+      <Form className={styles.container}>
+        <label className={styles.inputContainer}>
+          <Field className={styles.input} name='toDo' type='text' placeholder='new task' />
           <ErrorMessage name='toDo' component='span' />
         </label>
-        <button type='submit'>ADD</button>
+        <button className={styles.submitBtn} type='submit'>ADD</button>
       </Form>
     </Formik>
   );
