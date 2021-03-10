@@ -7,17 +7,28 @@ import styles from './taskInput.module.scss';
 const initialValues = { toDo: '' };
 
 const TaskInput = props => {
+  const onSubmit = (values, actions) => {
+    props.onSubmit(values);
+    actions.resetForm({initialValues});
+  };
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={TO_DO_INPUT_SCHEMA}
-      onSubmit={props.onSubmit}
+      onSubmit={onSubmit}
     >
       <Form className={styles.container}>
         <label className={styles.inputContainer}>
-          <Field className={styles.input} name='toDo' type='text' placeholder='new task' />
+          <Field
+            className={styles.input}
+            name='toDo'
+            type='text'
+            placeholder='new task'
+          />
         </label>
-        <button className={styles.submitBtn} type='submit'>ADD</button>
+        <button className={styles.submitBtn} type='submit'>
+          ADD
+        </button>
       </Form>
     </Formik>
   );
