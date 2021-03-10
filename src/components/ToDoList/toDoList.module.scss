@@ -1,5 +1,13 @@
 .container {
   max-width: 100%;
   padding: 25px 20px;
-background-color: white;
+  background-color: white;
+}
+
+.clearButton {
+  background-color: inherit;
+  border: none;
+  color: #ff494c;
+  margin-left: auto;
+  cursor: pointer;
 }

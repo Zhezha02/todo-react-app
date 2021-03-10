@@ -26,6 +26,8 @@ const ToDoListPage = props => {
     setTasks(newTasks);
   };
 
+  const clearToDoList = () => setTasks(new Map());
+
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.heading}>to-do list</h1>
@@ -35,6 +37,7 @@ const ToDoListPage = props => {
           toDoInputs={tasks}
           switchIsDone={switchIsDone}
           deleteTask={deleteTask}
+          clearToDoList={clearToDoList}
         />
       </div>
     </div>
