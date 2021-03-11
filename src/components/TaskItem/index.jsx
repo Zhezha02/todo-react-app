@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import trashCan from './trash-can-outline.svg';
 import styles from './TaskItem.module.scss';
-import cx from 'classnames';
 
 const TaskItem = props => {
   const [isChecked, setIsChecked] = useState(false);

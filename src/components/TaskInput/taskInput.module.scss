@@ -8,18 +8,19 @@
 .inputContainer {
   flex-grow: 1;
 }
+
 .input {
   width: 100%;
-  font-size: 1rem;
-  border: none;
   padding: 10px;
+  border: none;
+  font-size: 1rem;
 }
 
 .submitBtn {
   border: none;
+  font-size: 1rem;
   background-color: inherit;
   color: #67aeff;
   font-weight: bold;
-  font-size: 1rem;
   cursor: pointer;
 }
