@@ -1,31 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TaskInput from '../../components/TaskInput';
 import ToDoList from '../../components/ToDoList';
 import styles from './ToDoListPage.module.scss';
+import { useToDo } from '../../hooks';
 
-const ToDoListPage = props => {
-  const [tasks, setTasks] = useState(new Map());
-
-  const addTasks = ({ toDo }) => {
-    const newTask = {
-      taskValue: toDo,
-      isDone: false,
-    };
-
-    setTasks(new Map([...tasks]).set(Date.now(), newTask));
-  };
-
-  const switchIsDone = id => {
-    const task = tasks.get(id);
-    task.isDone = !task.isDone;
-  };
-
-  const deleteTask = id => {
-    const newTasks = new Map([...tasks]);
-    newTasks.delete(id);
-    setTasks(newTasks);
-  };
-  const clearToDoList = () => setTasks(new Map());
+const ToDoListPage = () => {
+  const { tasks, addTasks, switchIsDone, deleteTask, clearToDoList } = useToDo(
+    new Map()
+  );
 
   return (
     <div className={styles.wrapper}>
